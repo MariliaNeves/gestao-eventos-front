@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div id="app">       
+        <ul>
+            <li v-for="item in cidadeList" :key="item.nome">
+              {{ item.nome }}
+            </li>
+          </ul>        
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {                
+                cidadeList: [],
+            },
+            mounted: function(){
+                this.reverseMessage();
+            },
+            methods: {
+                async reverseMessage () {                    
+                    const gestao = "http://127.0.0.1:8000/cidade/";
+                    const response = await fetch(gestao);                   
+                    this.cidadeList = await response.json();                    
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
