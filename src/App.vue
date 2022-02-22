@@ -1,18 +1,15 @@
-<template>  
- <cidades />
+<template>
+  <div class="app">
+    <RouterView />
+  </div>
 </template>
 
 <script>
-import Cidades from "./components/Cidades";
-
 export default {
-  name: "App",
-  components: {
-    Cidades
-  }
-}
+  name: 'App',
+};
 </script>
 
-<style>
+<style lang="scss">
 
 </style>
